@@ -1,0 +1,54 @@
+// Array de objetos Persona
+let personas = [
+  { nombre: 'Luis', apellido: 'Martín' },
+  { nombre: 'Teresa', apellido: 'García' },
+  { nombre: 'Luis', apellido: 'González' },
+  { nombre: 'Sara', apellido: 'Martín' },
+];
+
+// Array de objetos Arma
+let armas = [
+  { nombre: 'Cuchillo', peso: '1kg' },
+  { nombre: 'Pistola', peso: '2kg' },
+  { nombre: 'Cuerda', peso: '0.5kg' },
+  { nombre: 'Pala', peso: '2.5kg' },
+  { nombre: 'Llave inglesa', peso: '1.5kg' },
+  { nombre: 'Botella', peso: '0.8kg' },
+  { nombre: 'Revólver', peso: '2.2kg' }
+];
+
+// Array de objetos Habitación
+let habitaciones = [
+  { nombre: 'Salón' },
+  { nombre: 'Cocina' },
+  { nombre: 'Comedor' },
+  { nombre: 'Biblioteca' },
+  { nombre: 'Sala de estar' }
+];
+
+// Función para seleccionar un elemento aleatorio de cada array y retornar un objeto con la información seleccionada
+function seleccionarClues() {
+  let asesino = personas[Math.floor(Math.random() * personas.length)];
+  let arma = armas[Math.floor(Math.random() * armas.length)];
+  let habitacion = habitaciones[Math.floor(Math.random() * habitaciones.length)];
+
+  return { asesino, arma, habitacion };
+}
+
+// Función para obtener una descripción del crimen
+function obtenerDescripcionCrimen(clues) {
+  return `El asesino es ${clues.asesino.nombre} ${clues.asesino.apellido}, 
+  quien usó un/a ${clues.arma.nombre} (peso: ${clues.arma.peso}) en la habitación ${clues.habitacion.nombre} para asesinar a Mr. Virginia.`;
+}
+
+// Seleccionar las pistas aleatorias
+let pistas = seleccionarClues();
+
+// Obtener la descripción del crimen
+let descripcionCrimen = obtenerDescripcionCrimen(pistas);
+
+// Imprimir la descripción del crimen
+console.log(descripcionCrimen);
+
+
+
